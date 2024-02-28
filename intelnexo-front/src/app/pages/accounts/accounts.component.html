@@ -1,0 +1,31 @@
+<div class="mx-auto p-8 bg-gray-100 min-h-screen">
+  <h2 class="text-3xl font-bold mb-6 text-center">Mis Cuentas</h2>
+
+  <div class="flex flex-wrap justify-center">
+    <div
+      class="bg-white p-4 rounded-md shadow-md m-4 w-72 font-medium"
+      *ngFor="let cliente of clientes"
+    >
+      <div>
+        <h2 class="text-xl font-bold mb-2">{{ cliente.username }}</h2>
+        <p class="text-gray-600">Email: {{ cliente.email }}</p>
+        <div
+          *ngFor="let cuenta of cliente.cuentas"
+          class="border border-gray-200 rounded-md p-2 my-2"
+        >
+          <div>
+            <p class="text-gray-700">Cuenta ID: {{ cuenta.id }}</p>
+            <p class="text-red-600">Saldo: ${{ cuenta.saldo }}</p>
+            <div class="flex justify-end">
+              <button
+                class="bg-blue-500 hover:bg-blue-700 text-white py-1 px-4 rounded transition duration-300 mt-2"
+              >
+                Pagar con PayPal
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
