@@ -20,6 +20,10 @@ export class ClienteService {
     });
   }
 
+  getCuentasbyID(id: number): Observable<any> {
+    return this.http.get(`${this.baseUrl}/users/account/${id}`);
+  }
+
   realizarPago(cliente: ClienteResponse): Observable<any> {
     return this.http.post(`${this.baseUrl}/users/pay`, cliente);
   }

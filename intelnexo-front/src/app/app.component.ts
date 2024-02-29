@@ -5,6 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { WelcomeComponent } from './shared/components/welcome/welcome.component';
 import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { UsersComponent } from './pages/users/users.component';
 
 @Component({
   selector: 'app-root',
@@ -13,6 +14,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
     RouterOutlet,
     AccountsComponent,
     DashboardComponent,
+    UsersComponent,
     WelcomeComponent,
     CommonModule,
     RouterLink,

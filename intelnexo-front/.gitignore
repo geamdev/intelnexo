@@ -2,8 +2,7 @@
 
 /.pnp
 .pnp.js
-.yarn/install-state.gz
-
+.yarn/install-state.gclass="mx-auto p-8 bg-gray-100 min-h-screen"z
 
 .angular/
 # production

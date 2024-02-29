@@ -8,8 +8,6 @@
 # production
 /build
 
-/intelnexo-front/.angular/
-
 # misc
 .DS_Store
 *.pem

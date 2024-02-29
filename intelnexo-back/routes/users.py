@@ -64,3 +64,17 @@ def pay(body: PaymentRequest):
         return jsonify({'message': 'ERROR', 'success': False, "error": str(e), "traceback": traceback.format_exc()})
 
 
+@main.route('/account/<int:user_id>')
+def get_user(user_id):
+    try:
+        user = User.query.get(user_id)
+        if user is None:
+            return jsonify({'message': 'Usuario no existe', 'success': False})
+
+        user_data =  [{'id': cuenta.id, 'saldo': cuenta.saldo} for cuenta in user.cuentas]
+
+        return jsonify(user_data)
+    except Exception as e:
+        Logger.add_to_log('error', str(e))
+        Logger.add_to_log('error', traceback.format_exc())
+        return jsonify({'message': 'ERROR', 'success': False})

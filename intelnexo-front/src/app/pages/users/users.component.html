@@ -1,0 +1,34 @@
+<div class="mx-auto p-8 bg-gray-100 min-h-screen">
+  <h2 class="text-3xl font-bold mb-6 text-center">Usuarios</h2>
+
+  <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
+    <div
+      class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow"
+      *ngFor="let cliente of clientes"
+    >
+      <div class="flex flex-col items-center py-4">
+        <img
+          class="w-24 h-24 mb-3 rounded-full shadow-lg"
+          src="https://picsum.photos/200/200"
+          alt="Bonnie image"
+        />
+        <h5 class="mb-1 text-xl font-medium text-gray-900">
+          {{ cliente.username }}
+        </h5>
+        <span class="text-sm text-gray-500">
+          {{ cliente.email }}
+        </span>
+        <div class="flex mt-4 md:mt-6">
+          <a
+            [routerLink]="['/user', cliente.id]"
+            class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 outline-none"
+          >
+            Ver Cliente
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<router-outlet />
