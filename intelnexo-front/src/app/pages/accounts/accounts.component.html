@@ -15,12 +15,16 @@
         >
           <div>
             <p class="text-gray-700">Cuenta ID: {{ cuenta.id }}</p>
-            <p class="text-red-600">Saldo: ${{ cuenta.saldo }}</p>
+            <p>
+              Saldo:
+              <span class="text-red-600">${{ cuenta.saldo }}</span>
+            </p>
             <div class="flex justify-end">
               <button
                 class="bg-blue-500 hover:bg-blue-700 text-white py-1 px-4 rounded transition duration-300 mt-2"
+                (click)="realizarPago(cliente.id, cuenta.id, cuenta.saldo)"
               >
-                Pagar con PayPal
+                Pagar
               </button>
             </div>
           </div>

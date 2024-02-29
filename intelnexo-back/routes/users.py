@@ -55,7 +55,7 @@ def pay(body: PaymentRequest):
             return jsonify({'message': 'Monto mayor a deuda', 'success': False})
 
         cuenta.saldo -= monto
-        user.save()
+        cuenta.save()
 
         return jsonify({'message': 'Pago exitoso', 'saldo': cuenta.saldo, 'success': True})
     except Exception as e:

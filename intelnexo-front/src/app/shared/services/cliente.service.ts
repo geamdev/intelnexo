@@ -1,21 +1,26 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Cliente, ClienteResponse } from '../models/cliente.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ClienteService {
-  private baseUrl = 'http://localhost:5000';
+  private baseUrl = 'http://localhost:4000';
 
   constructor(private http: HttpClient) {}
 
-  getClientes(): Observable<any> {
-    return this.http.get(`${this.baseUrl}/clientes`);
+  getClientes(): Observable<Cliente[]> {
+    return this.http.get<Cliente[]>(`${this.baseUrl}/users/`, {
+      headers: {
+        'Access-Control-Allow-Origin': 'http://localhost:4000',
+        'Access-Control-Allow-Credentials': 'true',
+      },
+    });
   }
 
-  // realizar el pago
-  realizarPago(cliente: any): Observable<any> {
-    return this.http.put(`${this.baseUrl}/clientes`, cliente);
+  realizarPago(cliente: ClienteResponse): Observable<any> {
+    return this.http.post(`${this.baseUrl}/users/pay`, cliente);
   }
 }

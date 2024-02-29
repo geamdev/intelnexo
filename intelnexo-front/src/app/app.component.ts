@@ -1,12 +1,22 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterLink, RouterOutlet } from '@angular/router';
 import { AccountsComponent } from './pages/accounts/accounts.component';
-import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { WelcomeComponent } from './shared/components/welcome/welcome.component';
+import { CommonModule } from '@angular/common';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, AccountsComponent],
+  imports: [
+    RouterOutlet,
+    AccountsComponent,
+    DashboardComponent,
+    WelcomeComponent,
+    CommonModule,
+    RouterLink,
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })

@@ -1,0 +1,58 @@
+<div
+  class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50"
+>
+  <div class="relative bg-white p-8 rounded-md">
+    <button
+      mat-button
+      (click)="close()"
+      class="absolute top-0 right-2 outline-none text-xl"
+    >
+      x
+    </button>
+
+    <h2 class="text-2xl font-bold mb-4">Vas a enviar un pago con PayPal</h2>
+    <p class="text-gray-600 mb-4">
+      El monto a pagar es de:
+      <span class="text-red-600 font-bold">${{ monto }}</span>
+    </p>
+
+    <div class="mb-4">
+      <form
+        class="flex flex-col"
+        #myform="ngForm"
+        (ngSubmit)="onSubmit(myform)"
+      >
+        <div class="mb-4 flex flex-col">
+          <label for="monto">Monto a pagar</label>
+          <input
+            type="text"
+            id="monto"
+            name="monto"
+            required
+            min="0"
+            ngModel
+            class="border-2 border-gray-200 rounded-md p-2 w-full outline-none"
+            pattern="[0-9]+"
+          />
+          <span
+            *ngIf="
+              myform.controls['monto'].invalid &&
+              (myform.controls['monto'].dirty ||
+                myform.controls['monto'].touched)
+            "
+            class="text-red-600 mt-1 text-xs"
+          >
+            Por favor, ingrese solo números.
+          </span>
+        </div>
+
+        <button
+          type="submit"
+          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
+        >
+          Pagar con PayPal
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

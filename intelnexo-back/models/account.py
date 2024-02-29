@@ -7,5 +7,8 @@ class Account(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('usuarios.id'), nullable=False)
     saldo = db.Column(db.Float, default=0.0)
 
+    def save(self):
+        db.session.commit()
+
     def __repr__(self):
         return f'Cuenta(user_id={self.user_id}, saldo={self.saldo})'
